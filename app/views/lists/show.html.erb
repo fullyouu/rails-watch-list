@@ -4,8 +4,13 @@
     <p>Title: <%= movie.title %></p>
     <p>Overview: <%= movie.overview %></p>
     <p>Url: <%= movie.poster_url %></p>
-    <p>Your comments: <%= movie.bookmarks.find_by(list_id: @list).comment %></p>
-    <p><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+    <p>Your comments: <%= bookmark.comment %></p>
+    <p><%= link_to 'Destroy',
+            bookmark_path(bookmark),
+            method: :delete,
+            class: 'btn btn-danger delete-btn',
+            data: { confirm: 'Are you sure?' } %></p>
   <% end %>
 
   <%= simple_form_for [@list, @bookmark] do |f| %>
