@@ -1,13 +1,11 @@
+<%= render 'layouts/banner' %>
+
 <div class="container">
   <div class="header">
     <h1>Lists</h1>
   </div>
 
-  <div class="row row-cols-lg-auto justify-content-begin">
-    <% @lists.each do |list| %>
-      <p><%= link_to list.name, list_path(list) %></p>
-    <% end %>
-  </div>
+  <%= render 'layouts/card' %>
 
   <div class="link">
     <p><%= link_to 'Create a new list', new_list_path(@list) %></p>

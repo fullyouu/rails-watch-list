@@ -1,0 +1,11 @@
+<% @lists.each do |list| %>
+  <div class="card-trip">
+    <img src="https://picsum.photos/200/300.jpg" />
+    <div class="card-trip-infos">
+      <div>
+          <p><%= link_to list.name, list_path(list) %></p>
+      </div>
+      <h2 class="card-trip-pricing">Rating</h2>
+    </div>
+  </div>
+<% end %>
