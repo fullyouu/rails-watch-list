@@ -1,0 +1,10 @@
+<div class="container">
+  <h2>New list</h2>
+  <%= form_for(@lists) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.submit %>
+  <% end %>
+
+  <%= link_to 'Back to all lists', lists_path %>
+</div>
