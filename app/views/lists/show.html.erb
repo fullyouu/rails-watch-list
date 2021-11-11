@@ -1,4 +1,17 @@
 <div class="container">
-    <p>Movie: <%= @list.name %></p>
+  <h1>List: <%= @list.name %></h1>
+  <% @list.movies.each do |movie| %>
+    <p>Title: <%= movie.title %></p>
+    <p>Overview: <%= movie.overview %></p>
+    <p>Url: <%= movie.poster_url %></p>
+    <p>Your comments: <%= movie.bookmarks.find_by(list_id: @list).comment %></p>
+    <p><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+  <% end %>
+
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.association :movie %>
+    <%= f.input :comment %>
+    <%= f.submit 'Bookmark', class: 'btn btn-primary' %>
+  <% end %>
   <%= link_to 'Back', lists_path %>
 </div>
