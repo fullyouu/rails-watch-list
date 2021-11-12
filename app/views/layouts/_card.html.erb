@@ -1,6 +1,7 @@
 <% @lists.each do |list| %>
   <div class="card-trip">
-    <img src="https://picsum.photos/200/300.jpg" />
+    <%= cl_image_tag("jpaeoysq4iowro6givg5",
+      width: 400, height: 300, crop: :fill) %>
     <div class="card-trip-infos">
       <div>
           <p><%= link_to list.name, list_path(list) %></p>
