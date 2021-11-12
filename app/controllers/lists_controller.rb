@@ -11,7 +11,7 @@ class ListsController < ApplicationController
   end
 
   def new
-    @lists = List.new
+    @list = List.new
   end
 
   def create
@@ -26,6 +26,6 @@ class ListsController < ApplicationController
   private
 
   def strong_params
-    params.require(:list).permit(:name)
+    params.require(:list).permit(:name, :photo)
   end
 end

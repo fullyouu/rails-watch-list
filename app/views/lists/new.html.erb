@@ -1,8 +1,8 @@
 <div class="container">
   <h2>New list</h2>
-  <%= form_for(@lists) do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+  <%= simple_form_for @list do |f| %>
+    <%= f.input :name %>
+    <%= f.input :photo, as: :file %>
     <%= f.submit %>
   <% end %>
 
