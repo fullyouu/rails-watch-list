@@ -1,11 +1,11 @@
-<%= render 'layouts/banner' %>
+<%= render './components/banner' %>
 
 <div class="container">
   <div class="header">
     <h1>Lists</h1>
   </div>
 
-  <%= render 'layouts/card' %>
+  <%= render './components/list_frontpage' %>
 
   <div class="link">
     <p><%= link_to 'Create a new list', new_list_path(@list) %></p>

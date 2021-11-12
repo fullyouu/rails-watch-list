@@ -1,0 +1,16 @@
+<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @list.photo.key %>)">
+  <%= @list.name %>
+</div>
+
+  <% @list.movies.each do |movie| %>
+    <p>Title: <%= movie.title %></p>
+    <p>Overview: <%= movie.overview %></p>
+    <p>Url: <%= movie.poster_url %></p>
+    <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+    <p>Your comments: <%= bookmark.comment %></p>
+    <p><%= link_to 'Destroy',
+            bookmark_path(bookmark),
+            method: :delete,
+            class: 'btn btn-danger delete-btn',
+            data: { confirm: 'Are you sure?' } %></p>
+  <% end %>

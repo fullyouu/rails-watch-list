@@ -1,19 +1,5 @@
 <div class="container">
-  <%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
-  <h1>List: <%= @list.name %></h1>
-  <% @list.movies.each do |movie| %>
-    <p>Title: <%= movie.title %></p>
-    <p>Overview: <%= movie.overview %></p>
-    <p>Url: <%= movie.poster_url %></p>
-    <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
-    <p>Your comments: <%= bookmark.comment %></p>
-    <p><%= link_to 'Destroy',
-            bookmark_path(bookmark),
-            method: :delete,
-            class: 'btn btn-danger delete-btn',
-            data: { confirm: 'Are you sure?' } %></p>
-  <% end %>
-
+  <%= render './components/movie_list' %>
   <%= simple_form_for [@list, @bookmark] do |f| %>
     <%= f.association :movie %>
     <%= f.input :comment %>
